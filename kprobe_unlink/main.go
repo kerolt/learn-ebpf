@@ -15,6 +15,8 @@ import (
 	"github.com/cilium/ebpf/rlimit"
 )
 
+//go:generate go run github.com/cilium/ebpf/cmd/bpf2go -cc clang -cflags "-O2 -g -Wall -Werror -D__TARGET_ARCH_x86" bpf kprobe_unlink.bpf.c
+
 func main() {
 	// 移除内存限制
 	if err := rlimit.RemoveMemlock(); err != nil {

@@ -1,2 +1,0 @@
-kprobe_unlink
-bpf_bpf*.go
