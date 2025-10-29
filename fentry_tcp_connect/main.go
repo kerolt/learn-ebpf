@@ -15,7 +15,7 @@ import (
 	"github.com/cilium/ebpf/rlimit"
 )
 
-//go:generate go run github.com/cilium/ebpf/cmd/bpf2go -cc clang -cflags "-O2 -g -Wall -Werror -D__TARGET_ARCH_x86" bpf fentry_tcp_connect.bpf.c
+//go:generate go run github.com/cilium/ebpf/cmd/bpf2go -cc clang -cflags "-O2 -g -Wall -Werror -D__TARGET_ARCH_x86 -I../vmlinux" bpf fentry_tcp_connect.bpf.c
 
 func main() {
 	stopper := make(chan os.Signal, 1)
